@@ -1,1 +1,0 @@
-kubeadm join 192.168.100.11:6443 --token zn808n.gnypnqmtlciz8iv7 --discovery-token-ca-cert-hash sha256:eaf38942416d79b489cda3411ec7ca6a2e71abc69183257a46603b5fd488fa0e 
