@@ -30,7 +30,12 @@ Adresse: (https://192.168.100.11:30002)
 
 ### Token erstellen
 ```bash
+<<<<<<< HEAD
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+=======
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n \
+kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+>>>>>>> e3c2453a5816c29ebbb7aeac1a37d07cccfa37fd
 ```
 
 ### Wordpress aktivieren
