@@ -1,0 +1,4 @@
+
+resources:                            # Starten der Deployments
+- persistentvolume.yaml
+- chatbot-deployment.yaml

@@ -1,0 +1,58 @@
+# Anlegen des Chatbot-Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot-service-np
+  labels:
+    name: chatbot-service-np
+spec:
+  type: NodePort
+  ports:
+    - port: 5000       
+      targetPort: 5000
+      nodePort: 30080   
+      protocol: TCP
+      name: http
+  selector:
+    app: chatbot
+---
+# Anlegen des Chatbot-Claims
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cb-pv-claim
+  labels:
+    app: chatbot
+spec:
+  storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+# Anlegen des Chatbot-Deployments
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot
+  labels:
+    app: chatbot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chatbot
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: chatbot
+    spec:
+      containers:
+      - image: itbrainzerfurt/chatbot-ai:latest
+        name: chatbot
+        ports:
+        - containerPort: 5000
+          name: chatbot
