@@ -2,7 +2,7 @@
 
 ```bash
 Ein Kubernetes-Multinode-Cluster mit Ansible und Vagrant erstellt.
-Es beinhaltet eine Chatbot-Ki, Wordpressumgebung mit MySQL Datenbank.
+Es beinhaltet das Kubernetes-Dashboard, Chatbot-Ki, Wordpressumgebung mit MySQL Datenbank.
 ```
 
 #### Benutzung:
@@ -20,24 +20,30 @@ make
 scp -P 2222 vagrant@127.0.0.1:/home/vagrant/.kube/config ~/.kube/config
 ```
 
-### Dashboard aktivieren (https://192.168.100.11:30002)
+### Dashboard aktivieren
 ```bash
 kubectl apply -f kubernetes-dashboard-service-np.yaml
+
+Adresse: (https://192.168.100.11:30002)
 ```
 
-### TOken erstellen
+### Token erstellen
 ```bash
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 ```
 
-### Wordpress aktivieren (http://192.168.100.11:32274)
+### Wordpress aktivieren
 ```bash
 kubectl apply -k wordpress/.
+
+Adresse: (http://192.168.100.11:32274)
 ```
 
-### Chatbot aktivieren (http://192.168.100.11:30080)
+### Chatbot aktivieren 
 ```bash
 kubectl apply -f chatbot/.
+
+Adresse: (http://192.168.100.11:30080)
 ```
 
 ### Services und Pods checken
