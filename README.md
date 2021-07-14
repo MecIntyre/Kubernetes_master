@@ -1,6 +1,7 @@
 # Kubernetes
 
-Ein Kubernetes-Multinode-Cluster mit Ansible erstellt.
+Ein Kubernetes-Multinode-Cluster mit Ansible und Vagrant erstellt.
+Es beinhaltet eine Chatbot-Ki, Wordpressumgebung mit MySQL Datenbank.
 
 #### Benutzung:
 
