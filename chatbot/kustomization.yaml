@@ -1,2 +1,0 @@
-resources:                            # Starten der Deployments
-- chatbot-deployment.yaml
