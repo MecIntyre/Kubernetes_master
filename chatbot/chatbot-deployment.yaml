@@ -16,21 +16,6 @@ spec:
   selector:
     app: chatbot
 ---
-# Anlegen des Chatbot-Claims
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: cb-pv-claim
-  labels:
-    app: chatbot
-spec:
-  storageClassName: manual
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
----
 # Anlegen des Chatbot-Deployments
 apiVersion: apps/v1
 kind: Deployment
