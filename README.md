@@ -20,7 +20,12 @@ make
 scp -P 2222 vagrant@127.0.0.1:/home/vagrant/.kube/config ~/.kube/config
 ```
 
-### Dashboard aktivieren
+### Dashboard herunterladen und aktivieren
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/
+dashboard/v2.2.0/aio/deploy/recommended.yaml
+```
 ```bash
 kubectl apply -f kubernetes-dashboard-service-np.yaml
 ```
