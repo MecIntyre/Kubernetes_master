@@ -3,6 +3,5 @@ secretGenerator:                      # Passwortspeicher mit Passwort
   literals:
   - password=mysqlpassword
 resources:                            # Starten der Deployments
-- persistentvolume.yaml
 - mysql-deployment.yaml
 - wordpress-deployment.yaml

@@ -21,12 +21,12 @@ metadata:
   labels:
     app: wordpress
 spec:
-  storageClassName: manual
+  storageClassName: rook-ceph-block
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 10Gi
 ---
 # Anlegen des Wordpress-Deployments
 apiVersion: apps/v1
