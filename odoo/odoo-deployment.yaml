@@ -1,20 +1,31 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: odoo
   labels:
     app: odoo
 spec:
-  nodeName: odoo
-  containers:
-    - name: odoo-container
-      image: odoo:latest
-      env:
-        - name: HOST
-          value: "postgres-service"
-      ports:
-        - containerPort: 8069
-          name: "odoo-http"
+  selector:
+    matchLabels:
+      app: odoo
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: odoo
+    spec:
+      containers:
+        - name: odoo-container
+          image: odoo
+          env:
+            - name: HOST
+              value: "postgres-service"
+          ports:
+            - containerPort: 8069
+              name: "odoo-http"
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
