@@ -10,7 +10,7 @@ Wordpressumgebung mit MySQL Datenbank und nginx-Testumgebung.
 
 ```bash
 sudo apt update && sudo apt -y install ansible ansible-lint make vagrant git
-git clone https://github.com/JoergEF/Kubernetes
+git clone https://github.com/MecIntyre/Kubernetes_master.git
 cd Kubernetes
 make
 ```
